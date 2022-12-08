@@ -1,0 +1,32 @@
+{
+  "name": "akira-c-popout-card",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "keywords": ["akira-c"],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/popout-card.umd.cjs",
+  "module": "lib/popout-card.js",
+  "exports": {
+    ".": {
+      "import": "./lib/popout-card.js",
+      "require": "./lib/popout-card.umd.cjs"
+    }
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.2.0",
+    "postcss-nesting": "^10.2.0",
+    "vite": "^3.2.3"
+  }
+}
