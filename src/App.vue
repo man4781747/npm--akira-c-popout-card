@@ -1,33 +1,47 @@
 <template>
   <div style="height: 100vh;" class="d-flex justify-content-center align-items-center">
-    <!-- PopoutCard component instance -->
-    <!-- v-if="blockWindowOpen": Conditionally renders the PopoutCard based on the blockWindowOpen data property. -->
-    <!-- @closeWindow="blockWindowOpen=false": Handles the closeWindow event emitted by PopoutCard.
-         When the event occurs, it sets blockWindowOpen to false, hiding the card. -->
-    <!-- :loadingWindow="loadingWindow": Binds the loadingWindow data property to the PopoutCard's loadingWindow prop.
-         This controls the loading overlay visibility on the card. -->
-    <PopoutCard v-if="blockWindowOpen" @closeWindow="blockWindowOpen=false"
-      :loadingWindow="loadingWindow"
-    >
-      <!-- Slot #card-header: Content for the header section of the PopoutCard. -->
-      <div class="card-header">
-        Clicking the gray area outside the window will close it.
-      </div>
-      <!-- Slot #card-body: Content for the main body section of the PopoutCard. -->
-      <div class="card-body">
-        This window cannot be closed while loading status.
-      </div>
-      <!-- Slot #card-footer: Content for the footer section of the PopoutCard. -->
-      <div class="card-footer">
-        <!-- Button to trigger the loadingTest method, demonstrating the loading feature. -->
-        <button @click="loadingTest" class="btn btn-info">Loading Test</button>
-      </div>
-    </PopoutCard>
-    <!-- Button to open the PopoutCard by setting blockWindowOpen to true. -->
-
     <div class="container">
       <div class="row">
-        <div class="col d-grid gap-2">
+        <div class="col-12 d-grid gap-2">
+          <PopoutCard v-if="blockWindowOpen" @closeWindow="blockWindowOpen=false"
+            :loadingWindow="loadingWindow"
+          >
+          <div class="card-header">
+            Clicking the gray area outside the window will close it.
+          </div>
+          <div class="card-body">
+            This window cannot be closed while loading status.
+          </div>
+          <div class="card-footer">
+            <button @click="loadingTest" class="btn btn-info">Loading Test</button>
+          </div>
+          </PopoutCard>
+          <h4># main.js</h4>
+          <pre><code class="language-js">import PopoutCard from 'akira-c-uploadtest'
+createApp(App).use(PopoutCard).mount('#app')</code></pre>
+          <h4># App.vue</h4>
+        <pre><code class="language-html">&lt;PopoutCard v-if="blockWindowOpen" @closeWindow="blockWindowOpen=false" :loadingWindow="loadingWindow">
+  &lt;div class="card-header">
+    Clicking the gray area outside the window will close it.
+  &lt;/div>
+  &lt;div class="card-body">
+    This window cannot be closed while loading status.
+  &lt;/div>
+  &lt;div class="card-footer">
+    &lt;button @click="loadingTest" class="btn btn-info">Loading Test&lt;/button>
+  &lt;/div>
+&lt;/PopoutCard>
+&lt;script>
+export default {
+  data() {
+    return {
+      blockWindowOpen: false,
+      loadingWindow: false
+    };
+  },
+}
+&lt;/script>
+</code></pre>
           <button @click="blockWindowOpen=true" class="btn btn-info" style="font-size: 3rem;">Click to show PopoutCard</button>
         </div>
       </div>
