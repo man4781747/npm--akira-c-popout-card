@@ -2,6 +2,9 @@
 
 A Vue 3 component that provides a pop-out card interface, often used for modals or dialogs. It includes features like a loading state and customizable content.
 
+## Demo
+ * [Demo Page](https://man4781747.github.io/Vue3__PopoutCard__Demo/)
+
 ## Installation
 
 Install the component using npm:
