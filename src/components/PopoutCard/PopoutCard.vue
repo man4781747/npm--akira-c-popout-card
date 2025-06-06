@@ -1,21 +1,13 @@
 <template>
-  <!-- Transition for the backdrop -->
   <transition name="blank-background-anime">
-    <!-- Backdrop element, shown when the card is open -->
     <div class="akira-c-blank-background" v-if="isOpen"></div>
   </transition>
-  <!-- Transition for the pop-out card window -->
   <transition name="pop-window-anime">
-    <!-- Main card container, allows closing by clicking outside the card content -->
     <div class="akira-card" @click.stop="closeWindow" v-if="isOpen">
-      <!-- Inner card content area, prevents clicks inside from closing the card -->
       <div class="card" @click.stop>
-        <!-- Transition for the loading overlay -->
         <transition name="loading-window-anime">
-          <!-- Loading overlay, shown when loadingWindow prop is true -->
           <div class="card-loading" v-if="loadingWindow">wait...</div>
         </transition>
-        <!-- Slot for customizable card content -->
         <slot></slot>
       </div>
     </div>

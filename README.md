@@ -22,10 +22,10 @@ Import and use the component in your Vue application:
       <p>This is the content of the card.</p>
     </div>
     <div class="card-footer">
-      <button @click="performAction">Do Something</button>
+      <button @click="performAction" class="btn btn-info">Do Something</button>
     </div>
   </PopoutCard>
-  <button @click="isCardVisible = true">Open Card</button>
+  <button @click="isCardVisible = true" class="btn btn-info">Open Card</button>
 </template>
 
 <script>

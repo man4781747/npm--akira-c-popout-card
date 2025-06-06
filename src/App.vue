@@ -15,16 +15,19 @@
       </div>
       <!-- Slot #card-body: Content for the main body section of the PopoutCard. -->
       <div class="card-body">
+        <div class="card-title">
+          <h5>Test</h5>
+        </div>
         Card-body
       </div>
       <!-- Slot #card-footer: Content for the footer section of the PopoutCard. -->
       <div class="card-footer">
         <!-- Button to trigger the loadingTest method, demonstrating the loading feature. -->
-        <button @click="loadingTest">Loading功能測試</button>
+        <button @click="loadingTest" class="btn btn-info">Loading功能測試</button>
       </div>
     </PopoutCard>
     <!-- Button to open the PopoutCard by setting blockWindowOpen to true. -->
-    <button @click="blockWindowOpen=true">Test</button>
+    <button @click="blockWindowOpen=true" class="btn btn-info">Test</button>
   </div>
 </template>
 
