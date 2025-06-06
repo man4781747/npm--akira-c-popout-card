@@ -1,5 +1,5 @@
 <template>
-  <div style="margin: 8px;">
+  <div style="height: 100vh;" class="d-flex justify-content-center align-items-center">
     <!-- PopoutCard component instance -->
     <!-- v-if="blockWindowOpen": Conditionally renders the PopoutCard based on the blockWindowOpen data property. -->
     <!-- @closeWindow="blockWindowOpen=false": Handles the closeWindow event emitted by PopoutCard.
@@ -11,23 +11,27 @@
     >
       <!-- Slot #card-header: Content for the header section of the PopoutCard. -->
       <div class="card-header">
-        Card-header
+        Clicking the gray area outside the window will close it.
       </div>
       <!-- Slot #card-body: Content for the main body section of the PopoutCard. -->
       <div class="card-body">
-        <div class="card-title">
-          <h5>Test</h5>
-        </div>
-        Card-body
+        This window cannot be closed while loading status.
       </div>
       <!-- Slot #card-footer: Content for the footer section of the PopoutCard. -->
       <div class="card-footer">
         <!-- Button to trigger the loadingTest method, demonstrating the loading feature. -->
-        <button @click="loadingTest" class="btn btn-info">Loading功能測試</button>
+        <button @click="loadingTest" class="btn btn-info">Loading Test</button>
       </div>
     </PopoutCard>
     <!-- Button to open the PopoutCard by setting blockWindowOpen to true. -->
-    <button @click="blockWindowOpen=true" class="btn btn-info">Test</button>
+
+    <div class="container">
+      <div class="row">
+        <div class="col d-grid gap-2">
+          <button @click="blockWindowOpen=true" class="btn btn-info" style="font-size: 3rem;">Click to show PopoutCard</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
