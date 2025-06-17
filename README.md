@@ -15,9 +15,9 @@ npm install akira-c-popout-card
 
 ## Usage
 
-Import and use the component in your Vue application:
+### 1. Import and use the component in your Vue application:
 
-```vue
+```typescript
 <template>
   <PopoutCard v-if="isCardVisible" @closeWindow="isCardVisible = false" :loadingWindow="isLoading">
     <div class="card-header">My Card Title</div>
@@ -33,6 +33,7 @@ Import and use the component in your Vue application:
 
 <script>
 import PopoutCard from 'akira-c-popout-card'; // Adjust path if necessary if used locally
+import 'akira-c-popout-card/lib/popout-card.css'
 
 export default {
   components: {
@@ -56,6 +57,13 @@ export default {
   }
 };
 </script>
+```
+
+### 2. Import with global
+```typescript
+import { install as PopoutCard } from 'akira-c-popout-card'
+import 'akira-c-popout-card/lib/popout-card.css'
+app.use(PopoutCard)
 ```
 
 ## Props

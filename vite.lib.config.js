@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import postcssNesting from 'postcss-nesting';
-import { viteSingleFile } from "vite-plugin-singlefile"
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(),viteSingleFile(),],
+  plugins: [vue()],
   css: {
     postcss: {
       plugins: [
@@ -25,11 +25,17 @@ export default defineConfig({
     rollupOptions: {
       external: ['vue'],
       output: {
+        exports: 'named',
         globals: {
           vue: 'Vue'
-        }
+        },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'style.css') return 'popout-card.css';
+          return assetInfo.name;
+        },
       }
-    }
+    },
+    cssCodeSplit: false
   },
 
 })

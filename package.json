@@ -1,7 +1,7 @@
 {
   "name": "akira-c-popout-card",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.8",
   "type": "module",
   "keywords": [
     "akira-c"
@@ -21,6 +21,10 @@
     ".": {
       "import": "./lib/popout-card.js",
       "require": "./lib/popout-card.umd.cjs"
+    },
+    "./lib/popout-card.css": {
+      "import": "./lib/popout-card.css",
+      "require": "./lib/popout-card.css"
     }
   },
   "dependencies": {

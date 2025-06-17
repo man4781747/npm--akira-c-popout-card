@@ -1,6 +1,5 @@
 import PopoutCard from "../src/components/PopoutCard";
-
-export { PopoutCard }
+import '../src/components/PopoutCard/PopoutCard.vue?inline'
 
 const components = [PopoutCard]
 
@@ -10,6 +9,4 @@ const install = (App) => {
   })
 }
 
-export default {
-  install
-}
+export { PopoutCard, install }
