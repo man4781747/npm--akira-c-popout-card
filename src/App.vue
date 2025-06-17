@@ -17,7 +17,8 @@
           </div>
           </PopoutCard>
           <h4># main.js</h4>
-          <pre><code class="language-js">import PopoutCard from 'akira-c-uploadtest'
+          <pre><code class="language-js">import { install as PopoutCard } from 'akira-c-popout-card'
+import 'akira-c-popout-card/lib/popout-card.css'
 createApp(App).use(PopoutCard).mount('#app')</code></pre>
           <h4># App.vue</h4>
         <pre><code class="language-html">&lt;PopoutCard v-if="blockWindowOpen" @closeWindow="blockWindowOpen=false" :loadingWindow="loadingWindow">
