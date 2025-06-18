@@ -33,8 +33,6 @@ npm install akira-c-popout-card
 
 <script>
 import PopoutCard from 'akira-c-popout-card'; // Adjust path if necessary if used locally
-import 'akira-c-popout-card/lib/popout-card.css'
-
 export default {
   components: {
     PopoutCard
@@ -60,10 +58,48 @@ export default {
 ```
 
 ### 2. Import with global
+
+in main.ts
 ```typescript
 import { install as PopoutCard } from 'akira-c-popout-card'
-import 'akira-c-popout-card/lib/popout-card.css'
 app.use(PopoutCard)
+```
+
+in xxx.vue
+```typescript
+<template>
+  <PopoutCard v-if="isCardVisible" @closeWindow="isCardVisible = false" :loadingWindow="isLoading">
+    <div class="card-header">My Card Title</div>
+    <div class="card-body">
+      <p>This is the content of the card.</p>
+    </div>
+    <div class="card-footer">
+      <button @click="performAction" class="btn btn-info">Do Something</button>
+    </div>
+  </PopoutCard>
+  <button @click="isCardVisible = true" class="btn btn-info">Open Card</button>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isCardVisible: false,
+      isLoading: false
+    };
+  },
+  methods: {
+    performAction() {
+      this.isLoading = true;
+      // Simulate an async action
+      setTimeout(() => {
+        this.isLoading = false;
+        this.isCardVisible = false;
+      }, 2000);
+    }
+  }
+};
+</script>
 ```
 
 ## Props

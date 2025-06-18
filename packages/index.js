@@ -7,14 +7,6 @@
 // 從源目錄導入 PopoutCard 組件
 import PopoutCard from "../src/components/PopoutCard";
 
-// Import the component's styles
-// 導入組件的樣式
-import '../src/components/PopoutCard/PopoutCard.vue?inline'
-
-// Array of components to be registered
-// 要註冊的組件數組
-const components = [PopoutCard]
-
 /**
  * Installation function for Vue plugin
  * Vue 插件的安裝函數
@@ -26,10 +18,10 @@ const components = [PopoutCard]
  * 此函數在 Vue 應用中全局註冊所有組件
  */
 const install = (App) => {
-  components.forEach((item) => {
-    App.component("PopoutCard", PopoutCard)
-  })
+  // console.log("install from packages/index.js")
+  App.component("PopoutCard", PopoutCard)
 }
+
 
 /**
  * Export the component and installation function
