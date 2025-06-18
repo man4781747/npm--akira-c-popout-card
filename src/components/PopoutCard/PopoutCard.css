@@ -1,0 +1,93 @@
+/* Styles for the backdrop element. */
+.akira-c-blank-background {
+  background-color: rgba(0,0,0,.5); /* Semi-transparent black background. */
+  position: absolute; /* Positioned relative to the nearest positioned ancestor or initial containing block. */
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  /* z-index: Ensures the backdrop is above other page content but below the card.
+      Might need adjustment in complex applications if other high z-index elements exist. */
+  z-index:100;
+}
+/* Styles for the main card container. */
+.akira-card {
+  position: absolute; /* Positioned relative to the nearest positioned ancestor or initial containing block. */
+  opacity: 1;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  /* z-index: Ensures the card is above the backdrop and other page content.
+      Might need adjustment in complex applications if other high z-index elements exist. */
+  z-index:101;
+  & .card { /* Styles for the inner card content area. */
+    height: fit-content; /* Card height adjusts to its content. */
+    margin-top: 3rem; /* Top margin to position the card. */
+    max-width: calc( 100% - 16px ) ; /* Maximum width, leaving some space from viewport edges. */
+    min-width: 300px ; /* Minimum width for the card. */
+    min-height: 1rem; /* Minimum height for the card. */
+    overflow: hidden; /* Hides content that overflows the card's boundaries. */
+    & .card-loading { /* Styles for the loading overlay. */
+      position: absolute; /* Positioned relative to the inner card. */
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0,0,0,.8); /* Semi-transparent dark background for loading. */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff; /* White text color for "wait..." message. */
+      font-size: 2rem; /* Large font size for the message. */
+    }
+  }
+}
+
+/* Animation styles for the backdrop. */
+/* Animation timings (e.g., .5s) should correspond to any related JavaScript logic (like the setTimeout in closeWindow). */
+.blank-background-anime-leave-active, .blank-background-anime-enter-active {
+  transition: all .5s ease;
+}
+
+.blank-background-anime-enter-from {
+  background-color: rgba(0,0,0,0); /* Start with a fully transparent background. */
+}
+
+.blank-background-anime-leave-to {
+  background-color: rgba(0,0,0,0); /* End with a fully transparent background. */
+}
+
+/* Animation styles for the pop-out card window. */
+/* Animation timings (e.g., .5s) should correspond to any related JavaScript logic (like the setTimeout in closeWindow). */
+.pop-window-anime-leave-active, .pop-window-anime-enter-active {
+  transition: all .5s ease;
+}
+
+.pop-window-anime-enter-from {
+  margin-top: -10rem; /* Start position from above, off-screen. */
+  opacity: 0; /* Start fully transparent. */
+}
+
+.pop-window-anime-leave-to {
+  opacity: 0; /* End fully transparent. */
+  margin-top: 10rem; /* End position below, off-screen. */
+}
+
+/* Animation styles for the loading overlay. */
+/* Animation timings (e.g., .25s) are independent here but good to keep consistent if related. */
+.loading-window-anime-leave-active, .loading-window-anime-enter-active {
+  transition: all .25s ease;
+}
+
+.loading-window-anime-enter-from {
+  opacity: 0; /* Start fully transparent. */
+}
+
+.loading-window-anime-leave-to {
+  opacity: 0; /* End fully transparent. */
+}
